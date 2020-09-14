@@ -1,0 +1,59 @@
+//----define moment varibles used to show time----//
+let date = moment().format("MMMM Do YYYY");
+
+//----append date into currentDay----//
+$("#currentDay").append(date);
+
+
+//---------background Updater------------------------//
+
+let timeOfday = ["9", "10", "11", "12", "13", "14", "15", "16", "17"]
+setTime();
+
+function setTime() {
+    let currentTime = moment().format('H');
+    for (let i = 0; i < timeOfday.length; i++) {
+
+        if (parseInt(timeOfday[i]) > currentTime) {
+            $("#" + timeOfday[i]).attr("style", "background-color: #58ce7b");
+        }
+
+        else if (parseInt(timeOfday[i]) < currentTime) {
+            $("#" + timeOfday[i]).attr("style", "background-color: lightgray");
+        }
+
+        else if (parseInt(timeOfday[i]) == currentTime) {
+            $("#" + timeOfday[i]).attr("style", "background-color: #fc665e");
+        }
+    }
+}
+
+//--onclick event to save user input to local storage---//
+$(".saveBtn" + timeOfday[i]).on("click", function () {
+    let timeOfday = $(this).parent().attr("id");
+    let textContent = $("input").val().trim();
+
+    localStorage.setItem(timeOfday, textContent);
+    console.log(timeOfday, textContent);
+});
+
+//-------Getting individual childern and setting to parent-----//
+$("#9am").children("input").val(localStorage.getItem("9am"));
+
+$("#10am").children("input").val(localStorage.getItem("10am"));
+
+$("#11am").children("input").val(localStorage.getItem("11am"));
+
+$("#12pm").children("input").val(localStorage.getItem("12pm"));
+
+$("#1pm").children("input").val(localStorage.getItem("1pm"));
+
+$("#2pm").children("input").val(localStorage.getItem("2pm"));
+
+$("#3pm").children("input").val(localStorage.getItem("3pm"));
+
+$("#4pm").children("input").val(localStorage.getItem("4pm"));
+
+$("#5pm").children("input").val(localStorage.getItem("5pm"));
+
+

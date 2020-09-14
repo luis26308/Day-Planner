@@ -1,0 +1,30 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+}
+
+
+.col-10 {
+    background: transparent;
+    border: none;
+    color: #000000;
+}
+
+.row {
+    white-space: pre-wrap;
+    height: 80px;
+}
+
+#time {
+    padding: 23px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.btn {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: black;
+    
+}
