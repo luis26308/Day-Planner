@@ -1,11 +1,9 @@
-//----define moment varibles used to show time----//
 let date = moment().format("MMMM Do YYYY");
 
-//----append date into currentDay----//
+
 $("#currentDay").append(date);
 
 
-//---------background Updater------------------------//
 
 let timeOfday = ["9", "10", "11", "12", "13", "14", "15", "16", "17"]
 setTime();
@@ -28,16 +26,14 @@ function setTime() {
     }
 }
 
-//--onclick event to save user input to local storage---//
-$(".saveBtn" + timeOfday[i]).on("click", function () {
+$(".saveBtn").on("click", function () {
     let timeOfday = $(this).parent().attr("id");
-    let textContent = $("input").val().trim();
+    let textContent = $(this).siblings("input").val().trim();
 
     localStorage.setItem(timeOfday, textContent);
     console.log(timeOfday, textContent);
 });
 
-//-------Getting individual childern and setting to parent-----//
 $("#9am").children("input").val(localStorage.getItem("9am"));
 
 $("#10am").children("input").val(localStorage.getItem("10am"));
